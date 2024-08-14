@@ -40,11 +40,10 @@ class ViewController: UIViewController {
         self.buttonFace.layer.cornerRadius = 6
         self.buttonFace.addTarget(self, action: #selector(self.actionFace), for: .touchUpInside)
         
-        // Nhập thông tin bộ mã truy cập. Lấy tại mục Quản lý Token https://ekyc.vnpt.vn/admin-dashboard/console/project-manager
         
-        ICEKYCSavedData.shared().tokenId = ""
-        ICEKYCSavedData.shared().tokenKey = ""
-        ICEKYCSavedData.shared().authorization = ""
+        // Hiển thị LOG các request được gọi trong SDK
+        ICEKYCSavedData.shared().isPrintLogRequest = true
+        
     }
     
     
@@ -61,6 +60,12 @@ class ViewController: UIViewController {
         let objCamera = ICEkycCameraRouter.createModule() as! ICEkycCameraViewController
         objCamera.cameraDelegate = self
         
+        // Nhập thông tin bộ mã truy cập.
+        // Lấy tại mục Quản lý Token https://ekyc.vnpt.vn/admin-dashboard/console/project-manager
+        objCamera.accessToken = ""
+        objCamera.tokenId = ""
+        objCamera.tokenKey = ""
+
         // Giá trị này xác định phiên bản khi sử dụng Máy ảnh tại bước chụp ảnh chân dung luồng full. Mặc định là Normal ✓
         // - Normal: chụp ảnh chân dung 1 hướng
         // - ProOval: chụp ảnh chân dung xa gần
@@ -132,6 +137,12 @@ class ViewController: UIViewController {
         let objCamera = ICEkycCameraRouter.createModule() as! ICEkycCameraViewController
         objCamera.cameraDelegate = self
         
+        // Nhập thông tin bộ mã truy cập.
+        // Lấy tại mục Quản lý Token https://ekyc.vnpt.vn/admin-dashboard/console/project-manager
+        objCamera.accessToken = ""
+        objCamera.tokenId = ""
+        objCamera.tokenKey = ""
+        
         // Giá trị xác định luồng thực hiện eKYC
         // - full: thực hiện eKYC đầy đủ các bước: chụp mặt trước, chụp mặt sau và chụp ảnh chân dung
         // - ocrFront: thực hiện OCR giấy tờ một bước: chụp mặt trước
@@ -182,6 +193,12 @@ class ViewController: UIViewController {
     @objc private func actionFace() {
         let objCamera = ICEkycCameraRouter.createModule() as! ICEkycCameraViewController
         objCamera.cameraDelegate = self
+        
+        // Nhập thông tin bộ mã truy cập.
+        // Lấy tại mục Quản lý Token https://ekyc.vnpt.vn/admin-dashboard/console/project-manager
+        objCamera.accessToken = ""
+        objCamera.tokenId = ""
+        objCamera.tokenKey = ""
         
         // Giá trị này xác định phiên bản khi sử dụng Máy ảnh tại bước chụp ảnh chân dung luồng full. Mặc định là Normal ✓
         // - Normal: chụp ảnh chân dung 1 hướng
